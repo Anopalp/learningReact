@@ -1,31 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Search from './components/Search'
 
-function Card({title}) {
-  const [hasLiked, setHasLiked] = useState(false);
-
-  return (
-    <div className='card'>
-      <h2>{title}</h2>
-
-      <button onClick={() => setHasLiked(!hasLiked)}>
-        {hasLiked ? '❤️' : "💔"}
-      </button>
-    </div>
-  )
-}
-
-function App() {
-  
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <div className='card-container'>
-      <Card title="Star Wars"/>
-      <Card title="Avatar"/>
-      <Card title="The Lion King"/>
-    </div>
+    <main>
+      <div className="pattern">
+        <div className="wrapper">
+          <header>
+            <img src="./hero.png" alt="Hero" />
+            <h1>Finds <span className="text-gradient">Movies</span> You Enjoy Without the Hassle</h1>
+          </header>
+
+          <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        </div>
+      </div>
+    </main>
   )
 }
 
